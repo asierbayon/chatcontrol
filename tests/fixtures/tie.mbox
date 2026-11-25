@@ -1,0 +1,27 @@
+From alice@example.org Tue Nov 24 10:00:00 2026
+From: Alice <alice@example.org>
+To: bob@gmail.com
+Date: Tue, 24 Nov 2026 10:00:00 +0000
+
+tie
+
+From bob@gmail.com Tue Nov 24 11:00:00 2026
+From: Bob <bob@gmail.com>
+To: alice@example.org
+Date: Tue, 24 Nov 2026 11:00:00 +0000
+
+tie
+
+From alice@example.org Tue Nov 24 12:00:00 2026
+From: Alice <alice@example.org>
+To: bob@gmail.com
+Date: Tue, 24 Nov 2026 12:00:00 +0000
+
+tie
+
+From bob@gmail.com Tue Nov 24 13:00:00 2026
+From: Bob <bob@gmail.com>
+To: alice@example.org
+Date: Tue, 24 Nov 2026 13:00:00 +0000
+
+tie

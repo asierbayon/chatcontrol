@@ -1,0 +1,45 @@
+From alice@example.org Tue Nov 24 10:00:00 2026
+From: Alice Example <alice@example.org>
+To: Bob <bob@gmail.com>,
+ Cara <cara@proton.me>
+Date: Tue, 24 Nov 2026 10:00:00 +0000
+
+BODYTOKEN-do-not-leak one
+
+From bob@gmail.com Tue Nov 24 11:00:00 2026
+From: Bob <bob@gmail.com>
+To: Alice Example <alice@example.org>
+Cc: Erin <erin@posteo.de>
+Date: Tue, 24 Nov 2026 11:00:00 +0000
+
+BODYTOKEN-do-not-leak two
+
+From dave@yahoo.com Tue Nov 24 12:00:00 2026
+From: Dave <dave@yahoo.com>
+To: alice@example.org
+Date: Tue, 24 Nov 2026 12:00:00 +0000
+
+BODYTOKEN-do-not-leak three
+
+From alice@example.org Tue Nov 24 13:00:00 2026
+From: alice@example.org
+To: frank@fastmail.com
+Bcc: gina@tuta.com
+Date: Tue, 24 Nov 2026 13:00:00 +0000
+
+BODYTOKEN-do-not-leak four
+
+From alice@example.org Tue Nov 24 14:00:00 2026
+From: Alice <alice@example.org>
+To: Helen <helen@outlook.com>
+Date: Tue, 24 Nov 2026 14:00:00 +0000
+
+BODYTOKEN-do-not-leak five
+
+From ivan@icloud.com Tue Nov 24 15:00:00 2026
+From: Ivan <ivan@icloud.com>
+To: alice@example.org
+Cc: Judy <judy@gmx.de>
+Date: Tue, 24 Nov 2026 15:00:00 +0000
+
+BODYTOKEN-do-not-leak six
