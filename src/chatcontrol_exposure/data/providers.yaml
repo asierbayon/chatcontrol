@@ -1,0 +1,381 @@
+schema_version: 1
+checked: "2026-11-25"
+description: >
+  MX hostname patterns and sourced claims. A value of unknown means the
+  fetched pages did not establish the claim. Regulation (EU) 2026/1881
+  allows voluntary scanning; it is not evidence that any given provider scans.
+providers:
+  - id: google
+    name: Google
+    mx_patterns:
+      - "*.l.google.com"
+      - "*.google.com"
+      - "*.googlemail.com"
+    notes: >
+      Gmail's published MX hostnames are under l.google.com. Google's
+      Workspace help says the MX value is smtp.google.com, which matches
+      *.google.com, and that legacy values starting with aspmx are still
+      supported (https://support.google.com/a/answer/174125?hl=en).
+    jurisdiction:
+      value: "United States"
+      sources:
+        - "https://policies.google.com/terms?hl=en"
+      detail: >
+        Google's terms say Google services are provided by Google LLC,
+        organized under the laws of Delaware and operating under the laws
+        of the USA, at 1600 Amphitheatre Parkway, Mountain View, California.
+        The same terms name Google Ireland Limited among affiliates that
+        provide consumer services in the EU.
+    e2e_by_default:
+      value: false
+      sources:
+        - "https://support.google.com/mail/answer/10434152?hl=en"
+      detail: >
+        Gmail's help page says data is encrypted in transit and at rest, and
+        that Gmail uses hash matching to detect child sexual abuse material
+        in the service. Provider-side hash matching of content is not
+        end-to-end encryption by default.
+    known_voluntary_scanning:
+      value: true
+      sources:
+        - "https://support.google.com/mail/answer/10434152?hl=en"
+      detail: >
+        That page states that Gmail detects online child sexual abuse under
+        Regulation (EU) 2021/1232 using hash matching, and that relevant
+        information may be reported to NCMEC. The regulation covers providers
+        that choose to do this processing.
+
+  - id: microsoft
+    name: Microsoft
+    mx_patterns:
+      - "*.protection.outlook.com"
+    notes: >
+      Consumer Outlook domains and Microsoft 365 custom domains observed for
+      this dataset use hostnames under protection.outlook.com, including
+      olc.protection.outlook.com and mail.protection.outlook.com.
+    jurisdiction:
+      value: "United States"
+      sources:
+        - "https://www.microsoft.com/en-us/corporate-responsibility/digital-safety-content-report"
+      detail: >
+        Microsoft's Digital Safety Content Report describes Microsoft as a
+        U.S.-based company that reports apparent child sexual exploitation
+        and abuse imagery to NCMEC.
+    e2e_by_default:
+      value: false
+      sources:
+        - "https://www.microsoft.com/en-us/corporate-responsibility/digital-safety-content-report"
+        - "https://www.microsoft.com/en-us/digitalsafety/moderation-and-enforcement/content-detection"
+      detail: >
+        The report says Microsoft leverages PhotoDNA across consumer services
+        and, for January through December 2025, actioned child sexual
+        exploitation and abuse imagery on hosted consumer services such as
+        OneDrive, Outlook, Skype, and Xbox. Hash-matching content on Outlook
+        is not end-to-end encryption by default.
+    known_voluntary_scanning:
+      value: true
+      sources:
+        - "https://www.microsoft.com/en-us/corporate-responsibility/digital-safety-content-report"
+        - "https://www.microsoft.com/en-us/digitalsafety/moderation-and-enforcement/content-detection"
+      detail: >
+        Microsoft's content-detection page says it deploys PhotoDNA and MD5
+        on images and video shared through hosted consumer services and relies
+        on the derogation in Regulation (EU) 2021/1232 where those services
+        are governed by Directive 2002/58/EC. The same page says not every
+        technology is used on every service. The 2025 report includes Outlook
+        among hosted consumer services where that imagery was actioned, and
+        says 99.73% of the actioned content was detected through automated
+        technologies.
+
+  - id: yahoo
+    name: Yahoo
+    mx_patterns:
+      - "*.yahoodns.net"
+    notes: >
+      Yahoo, AOL, and other Yahoo mail domains observed for this dataset
+      point at yahoodns.net.
+    jurisdiction:
+      value: "United States"
+      sources:
+        - "https://legal.yahoo.com/us/en/yahoo/privacy/index.html"
+      detail: >
+        Yahoo's privacy policy says that "Yahoo" means Yahoo Inc., the
+        US-established company that supplies the services, and lists
+        770 Broadway, New York, NY 10003, USA for privacy inquiries.
+    e2e_by_default:
+      value: false
+      sources:
+        - "https://www.yahooinc.com/transparency/reports/yahoos-efforts-combat-online-child-exploitation.html"
+      detail: >
+        Yahoo's CSAM transparency report describes processing data in
+        unencrypted communications services in order to detect CSAM. That
+        is not end-to-end encryption by default.
+    known_voluntary_scanning:
+      value: true
+      sources:
+        - "https://www.yahooinc.com/transparency/reports/yahoos-efforts-combat-online-child-exploitation.html"
+      detail: >
+        Yahoo says it uses automated scanning, including PhotoDNA and CSAI
+        Match, together with human review. It also says it uses EU-law
+        authority to process data in unencrypted communications services
+        for the limited purpose of detecting, removing, and reporting CSAM
+        and the solicitation of children.
+
+  - id: apple
+    name: Apple
+    mx_patterns:
+      - "*.mail.icloud.com"
+    notes: >
+      iCloud, me.com, and mac.com mail observed for this dataset is delivered
+      through mx01.mail.icloud.com and mx02.mail.icloud.com.
+    jurisdiction:
+      value: "United States"
+      sources:
+        - "https://www.apple.com/legal/privacy/en-ww/"
+      detail: >
+        Apple's privacy policy says personal data processed by an
+        Apple-affiliated company worldwide is generally stored by Apple Inc.
+        in the United States.
+    e2e_by_default:
+      value: false
+      sources:
+        - "https://support.apple.com/en-us/102651"
+      detail: >
+        Apple's iCloud security overview lists iCloud Mail as encrypted in
+        transit and on the server, with keys stored by Apple, under both
+        standard data protection and Advanced Data Protection. A footnote
+        states that iCloud Mail does not use end-to-end encryption because
+        it has to interoperate with the global email system. Apple email
+        clients support optional S/MIME.
+    known_voluntary_scanning:
+      value: "unknown"
+      sources:
+        - "https://www.apple.com/legal/privacy/en-ww/"
+        - "https://support.apple.com/en-us/102651"
+      detail: >
+        Apple's privacy policy says Apple may prescreen or scan uploaded
+        content for potentially illegal content, including child sexual
+        exploitation material. It does not say that this includes iCloud Mail.
+        The iCloud security overview does not describe CSAM scanning of mail.
+        Unknown is not counted as exposed.
+
+  - id: gmx
+    name: GMX / WEB.DE
+    mx_patterns:
+      - "*.gmx.net"
+      - "*.web.de"
+      - "*.mail.com"
+    notes: >
+      gmx.de, gmx.net, gmx.at, and gmx.com observed for this dataset use
+      gmx.net mail exchangers. web.de and mail.com use their own hostnames.
+      United Internet's Mail & Media page treats WEB.DE, GMX, and the
+      acquired mail.com brand as one segment.
+    jurisdiction:
+      value: "Germany"
+      sources:
+        - "https://agb-server.gmx.net/datenschutz/"
+        - "https://www.united-internet.de/unternehmen/segmente/mail-und-media/"
+      detail: >
+        GMX's privacy notice names 1&1 Mail & Media GmbH, with offices in
+        Karlsruhe and Montabaur, as the controller, and says mail is stored
+        in Germany. United Internet's Mail & Media page says WEB.DE and GMX
+        store email and cloud data in Germany under German data-protection
+        rules. The same page says mail.com was acquired at the end of 2010
+        and is aimed at international markets. mail.com is grouped here for
+        MX classification; a separate mail.com legal-entity page was not
+        used.
+    e2e_by_default:
+      value: false
+      sources:
+        - "https://www.gmx.net/mail/sicherheit/"
+      detail: >
+        GMX describes SSL/TLS between the browser or GMX app and GMX servers,
+        and transport encryption between participants in "E-Mail made in
+        Germany". It does not describe end-to-end encryption by default.
+        That sentence is GMX's. WEB.DE is grouped with GMX on the United
+        Internet segment page.
+    known_voluntary_scanning:
+      value: "unknown"
+      sources:
+        - "https://agb-server.gmx.net/datenschutz/"
+      detail: >
+        GMX's privacy notice says incoming and outgoing mail, including
+        attachments, is scanned for viruses, malware, and similar threats,
+        and that this scan can be turned off. It does not say whether GMX
+        voluntarily scans for CSAM. Unknown is not counted as exposed.
+
+  - id: proton
+    name: Proton
+    mx_patterns:
+      - "*.protonmail.ch"
+    notes: >
+      proton.me, protonmail.com, pm.me, and protonmail.ch observed for this
+      dataset use mail.protonmail.ch and mailsec.protonmail.ch. A message
+      Proton delivers to Gmail or Outlook is still counted on that other
+      provider.
+    jurisdiction:
+      value: "Switzerland"
+      sources:
+        - "https://proton.me/legal/terms"
+      detail: >
+        Proton's terms say the services are operated by Proton AG, a Swiss
+        company at Route de la Galaise 32, 1228 Plan-les-Ouates, Geneva.
+    e2e_by_default:
+      value: true
+      sources:
+        - "https://proton.me/support/proton-mail-encryption-explained"
+      detail: >
+        Proton says messages between Proton Mail addresses are always
+        end-to-end encrypted in transit, and that bodies and attachments in
+        the inbox are stored with zero-access encryption, including mail that
+        arrived from non-Proton addresses. Mail sent to a non-Proton address
+        uses TLS and is not end-to-end encrypted by default unless the sender
+        uses a password-protected message. Subject lines are not end-to-end
+        encrypted.
+    known_voluntary_scanning:
+      value: false
+      sources:
+        - "https://proton.me/support/proton-mail-encryption-explained"
+      detail: >
+        Proton says nobody else can access inbox messages and attachments,
+        not even Proton, because of zero-access encryption. The page does
+        not describe a voluntary CSAM scanning program. Subject lines are a
+        stated exception. This value does not say anything about mail after
+        it leaves Proton for another provider.
+
+  - id: tuta
+    name: Tuta
+    mx_patterns:
+      - "*.tutanota.de"
+    notes: >
+      tuta.com, tutanota.com, tuta.io, and tutamail.com observed for this
+      dataset use mail.tutanota.de. Mail Tuta delivers to a scanning provider
+      is still counted on that provider.
+    jurisdiction:
+      value: "Germany"
+      sources:
+        - "https://tuta.com/imprint"
+        - "https://tuta.com/secure-email"
+      detail: >
+        Tuta's legal notice names Tutao GmbH, Deisterstr. 17a, 30449 Hanover,
+        Germany. Tuta's product page also says the service is located in
+        Germany.
+    e2e_by_default:
+      value: true
+      sources:
+        - "https://tuta.com/encryption"
+        - "https://tuta.com/secure-email"
+      detail: >
+        Tuta says email between Tuta users is automatically end-to-end
+        encrypted, including subject lines and attachments, and that the
+        whole mailbox is end-to-end encrypted by default. An outside
+        recipient needs a shared password for end-to-end encryption. Mail
+        that arrives unencrypted is encrypted once it reaches Tuta's servers.
+        Tuta says it never stores unencrypted email.
+    known_voluntary_scanning:
+      value: false
+      sources:
+        - "https://tuta.com/secure-email"
+      detail: >
+        Tuta says that, in contrast to Gmail, Outlook, and Yahoo, it does
+        not scan or track emails, and that not even Tuta can decrypt and
+        read them.
+
+  - id: fastmail
+    name: Fastmail
+    mx_patterns:
+      - "*.messagingengine.com"
+    notes: >
+      fastmail.com observed for this dataset uses
+      in1-smtp.messagingengine.com and in2-smtp.messagingengine.com.
+    jurisdiction:
+      value: "Australia"
+      sources:
+        - "https://www.fastmail.com/company/about/"
+      detail: >
+        Fastmail's about page says the company is headquartered in Melbourne
+        and names Fastmail Pty. Ltd. in Victoria, Australia. It also lists a
+        Fastmail US LLC office in Philadelphia. Customers can choose EU or
+        US data residency; that is separate from where the company is
+        established.
+    e2e_by_default:
+      value: false
+      sources:
+        - "https://www.fastmail.com/features/security/"
+      detail: >
+        Fastmail says it encrypts data in transit and at rest and does not
+        offer end-to-end encryption in its own apps. It points people who
+        want that to PGP or S/MIME in third-party apps, and says spam
+        checking cannot analyze content if the server cannot read it.
+    known_voluntary_scanning:
+      value: "unknown"
+      sources:
+        - "https://www.fastmail.com/policies/privacy/"
+        - "https://www.fastmail.com/features/security/"
+      detail: >
+        Fastmail's privacy policy says it analyzes email traffic to protect
+        against spam and fraud, and may share messages a user reports with
+        anti-spam partners. Neither that page nor the security page says
+        whether Fastmail voluntarily scans for CSAM. Unknown is not counted
+        as exposed.
+
+  - id: mailboxorg
+    name: mailbox.org
+    mx_patterns:
+      - "*.mailbox.org"
+    jurisdiction:
+      value: "Germany"
+      sources:
+        - "https://mailbox.org/en/legal-information/"
+      detail: >
+        mailbox.org's legal notice says the service is operated by Heinlein
+        Hosting GmbH, Schwedter Straße 8/9A, 10119 Berlin, Germany.
+    e2e_by_default:
+      value: false
+      sources:
+        - "https://mailbox.org/en/security/"
+      detail: >
+        mailbox.org says connections use SSL/TLS and that encrypting mail
+        with S/MIME and PGP is an option. Optional PGP is not end-to-end
+        encryption by default.
+    known_voluntary_scanning:
+      value: "unknown"
+      sources:
+        - "https://mailbox.org/en/security/"
+      detail: >
+        The security page says all emails are scanned multiple times for
+        possible malware. It does not say whether mailbox.org voluntarily
+        scans for CSAM. Unknown is not counted as exposed.
+
+  - id: posteo
+    name: Posteo
+    mx_patterns:
+      - "*.posteo.de"
+    jurisdiction:
+      value: "Germany"
+      sources:
+        - "https://posteo.de/site/impressum"
+      detail: >
+        Posteo's imprint names Posteo e.K., Methfesselstr. 38, 10965 Berlin,
+        registered at Amtsgericht Berlin-Charlottenburg under HRA 47592 B.
+    e2e_by_default:
+      value: false
+      sources:
+        - "https://posteo.de/en/site/privacy_policy"
+      detail: >
+        Posteo's privacy policy says users can encrypt stored emails, notes,
+        contacts, and calendar entries with the account password, at the
+        touch of a button. That mailbox encryption is optional. The policy
+        describes transport encryption separately. End-to-end encryption of
+        mail sent to outside providers is not the default.
+    known_voluntary_scanning:
+      value: "unknown"
+      sources:
+        - "https://posteo.de/en/site/privacy_policy"
+      detail: >
+        The policy says telecommunications secrecy means Posteo is not
+        allowed to read mail or pass it on, except in individual cases
+        ordered by a judge, and that spam and virus detection runs locally
+        without sending content to third parties. It does not say whether
+        Posteo voluntarily scans for CSAM under the EU derogation. Unknown
+        is not counted as exposed.

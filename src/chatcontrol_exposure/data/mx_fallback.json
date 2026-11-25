@@ -1,0 +1,59 @@
+{
+  "observed": "2026-11-25",
+  "description": "MX hostnames for common domains, from DNS lookups on the date above. Domains only. Used by --offline when the local cache has no fresher answer.",
+  "domains": {
+    "aol.com": ["mx-aol.mail.gm0.yahoodns.net"],
+    "fastmail.com": ["in1-smtp.messagingengine.com", "in2-smtp.messagingengine.com"],
+    "gmail.com": [
+      "alt1.gmail-smtp-in.l.google.com",
+      "alt2.gmail-smtp-in.l.google.com",
+      "alt3.gmail-smtp-in.l.google.com",
+      "alt4.gmail-smtp-in.l.google.com",
+      "gmail-smtp-in.l.google.com"
+    ],
+    "gmx.at": ["mx00.emig.gmx.net", "mx01.emig.gmx.net"],
+    "gmx.com": ["mx00.gmx.net", "mx01.gmx.net"],
+    "gmx.de": ["mx00.emig.gmx.net", "mx01.emig.gmx.net"],
+    "gmx.net": ["mx00.emig.gmx.net", "mx01.emig.gmx.net"],
+    "googlemail.com": [
+      "alt1.gmail-smtp-in.l.google.com",
+      "alt2.gmail-smtp-in.l.google.com",
+      "alt3.gmail-smtp-in.l.google.com",
+      "alt4.gmail-smtp-in.l.google.com",
+      "gmail-smtp-in.l.google.com"
+    ],
+    "hotmail.co.uk": ["eur.olc.protection.outlook.com"],
+    "hotmail.com": ["hotmail-com.olc.protection.outlook.com"],
+    "icloud.com": ["mx01.mail.icloud.com", "mx02.mail.icloud.com"],
+    "live.co.uk": ["eur.olc.protection.outlook.com"],
+    "live.com": ["live-com.olc.protection.outlook.com"],
+    "mac.com": ["mx01.mail.icloud.com", "mx02.mail.icloud.com"],
+    "mail.com": ["mx00.mail.com", "mx01.mail.com"],
+    "mailbox.org": [
+      "mx-n.mailbox.org",
+      "mx1.mailbox.org",
+      "mx2.mailbox.org",
+      "mx3.mailbox.org",
+      "mx4.mailbox.org"
+    ],
+    "me.com": ["mx01.mail.icloud.com", "mx02.mail.icloud.com"],
+    "msn.com": ["msn-com.olc.protection.outlook.com"],
+    "outlook.com": ["outlook-com.olc.protection.outlook.com"],
+    "outlook.de": ["eur.olc.protection.outlook.com"],
+    "outlook.fr": ["eur.olc.protection.outlook.com"],
+    "pm.me": ["mail.protonmail.ch", "mailsec.protonmail.ch"],
+    "posteo.de": ["mx01.posteo.de", "mx02.posteo.de", "mx03.posteo.de", "mx04.posteo.de"],
+    "proton.me": ["mail.protonmail.ch", "mailsec.protonmail.ch"],
+    "protonmail.ch": ["mail.protonmail.ch", "mailsec.protonmail.ch"],
+    "protonmail.com": ["mail.protonmail.ch", "mailsec.protonmail.ch"],
+    "tuta.com": ["mail.tutanota.de"],
+    "tuta.io": ["mail.tutanota.de"],
+    "tutamail.com": ["mail.tutanota.de"],
+    "tutanota.com": ["mail.tutanota.de"],
+    "web.de": ["mx-ha02.web.de", "mx-ha03.web.de"],
+    "yahoo.co.uk": ["mx-eu.mail.am0.yahoodns.net"],
+    "yahoo.com": ["mta5.am0.yahoodns.net", "mta6.am0.yahoodns.net", "mta7.am0.yahoodns.net"],
+    "yahoo.fr": ["mx-eu.mail.am0.yahoodns.net"],
+    "ymail.com": ["mta5.am0.yahoodns.net", "mta6.am0.yahoodns.net", "mta7.am0.yahoodns.net"]
+  }
+}

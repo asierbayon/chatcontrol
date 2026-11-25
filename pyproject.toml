@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chatcontrol-exposure"
+version = "0.1.0"
+description = "Show how much of an email correspondence sits in the clear at providers that scan mail."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Asier Bayón" }]
+keywords = ["email", "privacy", "mbox", "imap"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Communications :: Email",
+    "Topic :: Security",
+]
+dependencies = [
+    "dnspython>=2.4",
+    "PyYAML>=6",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+chatcontrol-exposure = "chatcontrol_exposure.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/asierbayon/chatcontrol"
+Source = "https://github.com/asierbayon/chatcontrol"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+chatcontrol_exposure = ["data/*.yaml", "data/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
